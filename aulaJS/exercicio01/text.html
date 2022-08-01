@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando Pais</title>
+    <style>
+        h1 {
+            font: normal 40px arial;
+            border: 30px;
+            background-color: aqua;
+            border-radius: 10px 10px;
+            box-shadow: 5px 5px rgba(0, 0, 0, 0.048);
+        }
+        input {
+            font: normal 18 pt arial;
+            width: 100px;
+            
+        }
+        input:hover {
+            box-shadow: 5px 5px rgba(0, 0, 0, 0.075);
+        }
+        #txtpais {
+            width: 200px;
+            height: 20px;
+           
+        }
+    </style>
+</head>
+<body>
+    <h1>Voce mora no Brasil?</h1>
+        <strong>Em qual pais voce mora?</strong><input type="text" name="txtpais" id="txtpais">
+        <input type="button" value="verificar" onclick="verificar()">
+        <div id="res">
+        </div>
+
+        <script>
+            let pais = 'Brasil'
+            function verificar () {
+                let txtpais = document.getElementById('txtpais');
+                let res = document.getElementById('res');
+                res.innerHTML = `<p>Vivendo no ${pais}<p/>`
+                    if (res =='Brasil') {
+                        res.innerHTML += '<p>Voce é Brasileiro</p>'
+                 } else {
+                    res.innerHTML += ' <p>Voce é  Estrangeiro</p>'
+                 }
+                  
+        }
+        </script>
+</body>
+</html>
