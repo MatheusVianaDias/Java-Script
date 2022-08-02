@@ -30,22 +30,21 @@
 </head>
 <body>
     <h1>Voce mora no Brasil?</h1>
-        <strong>Em qual pais voce mora?</strong><input type="text" name="txtpais" id="txtpais">
+        <strong>Em qual pais voce mora?</strong>
+        <input type="text" name="txtpais" id="txtpais">
         <input type="button" value="verificar" onclick="verificar()">
-        <div id="res">
-        </div>
-
+        <div id="res"></div>
         <script>
-            let pais = 'Brasil'
             function verificar () {
-                let txtpais = document.getElementById('txtpais');
+                let input = document.getElementById("txtpais"); 
                 let res = document.getElementById('res');
-                res.innerHTML = `<p>Vivendo no ${pais}<p/>`
-                    if (res =='Brasil') {
-                        res.innerHTML += '<p>Voce é Brasileiro</p>'
-                 } else {
+                let text = input.value;
+                res.innerHTML = `<p>Vivendo no ${input.value}<p/>`
+                if (text =='Brasil') {
+                    res.innerHTML += '<p>Voce é Brasileiro</p>'
+                } else {
                     res.innerHTML += ' <p>Voce é  Estrangeiro</p>'
-                 }
+                }
                   
         }
         </script>
