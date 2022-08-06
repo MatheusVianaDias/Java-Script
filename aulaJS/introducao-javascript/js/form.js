@@ -1,43 +1,3 @@
-document.querySelector(".titulo");
-let titulo = document.querySelector(".titulo");
-titulo.textContent = "Aparecida Nutricionista";
-
-let pacientes = document.querySelectorAll(".paciente");
-
-for(let i = 0; i < pacientes.length; i++){
-    
-    let paciente = pacientes[i]
-
-    let tdpeso = paciente.querySelector(".info-peso");
-    let peso = tdpeso.textContent;
-    
-    let tdaltura = paciente.querySelector(".info-altura")
-    let altura = tdaltura.textContent;
-    
-    
-    let tdimc = paciente.querySelector(".info-imc");
-    
-    let pesoehvalido = true;
-    let alturaehvalida = true;
-    
-    if(peso < 0 || peso > 1000){
-        pesoehvalido = false;
-        tdimc.textContent = "peso invalido!"
-        paciente.classList.add("paciente-invalido")
-    }
-    if(altura < 0 || altura > 3.00){
-        alturaehvalida = false;
-        tdimc.textContent = "altura invalida!";
-        paciente.classList.add("paciente-invalido")
-
-    }
-    
-    if( alturaehvalida && pesoehvalido){
-        let imc = peso / (altura * altura);
-        tdimc.textContent = imc.toFixed(2);
-    }
-}
-
 let botaoAdicionar = document.querySelector("#adicionar-paciente");
 botaoAdicionar.addEventListener("click",function(event){
     event.preventDefault();
@@ -61,11 +21,13 @@ botaoAdicionar.addEventListener("click",function(event){
     pesoTd.textContent = peso;
     alturaTd.textContent = altura;
     gorduraTd.textContent = gordura;
+    imcTd.textContent = calculaImc(peso,altura);
     
     pacienteTr.appendChild(nomeTd);
     pacienteTr.appendChild(pesoTd);
     pacienteTr.appendChild(alturaTd);
     pacienteTr.appendChild(gorduraTd);
+    pacienteTr.appendChild(imcTd);	
 
     let tabela = document.querySelector("#tabela-pacientes");
 
@@ -76,4 +38,3 @@ botaoAdicionar.addEventListener("click",function(event){
 titulo.addEventListener("click", function (){
     console.log("Olha só posso chamar uma funçao anomina ");
 });
-
